@@ -1,0 +1,26 @@
+name: Build Plugins
+
+on: push
+
+jobs:
+  build:
+    if: ${{ github.repository != 'diogotr7/Artemis.PluginTemplate' && github.repository != 'Artemis-RGB/Artemis.PluginTemplate' && '[ -f .template ]' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '7.0.x'
+
+      - name: Clone
+        uses: actions/checkout@v2
+
+      - name: Build
+        run: dotnet publish -c Release src
+
+      # You'll need to fill in the name of your plugin here
+      # - name: Upload
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     path: src/{{pluginName}}/bin/x64/Release/net7.0/publish
