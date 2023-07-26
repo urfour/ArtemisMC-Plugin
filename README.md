@@ -2,7 +2,7 @@
 
 Artemis plugin for Minecraft Game State Integration.
 
-⚠️ This plugin alone doesn't work, it needs to be installed with the [corresponding mod](https://github.com/urfour/ArtemisMC-Plugin) on Minecraft!
+⚠️ This plugin alone doesn't work, it needs to be installed with the [corresponding mod](https://github.com/urfour/ArtemisMC) on Minecraft!
 
 ## Installation
 
