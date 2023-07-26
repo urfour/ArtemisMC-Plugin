@@ -19,8 +19,7 @@ jobs:
       - name: Build
         run: dotnet publish -c Release src
 
-      # You'll need to fill in the name of your plugin here
-      # - name: Upload
-      #   uses: actions/upload-artifact@v3
-      #   with:
-      #     path: src/{{pluginName}}/bin/x64/Release/net7.0/publish
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        with:
+          path: src/Artemis.Plugins.Games.Minecraft/bin/x64/Release/net7.0/publish
