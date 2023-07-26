@@ -1,5 +1,5 @@
 using Artemis.Core.Modules;
-using Artemis.Plugins.Minecraft.DataModels;
+using Artemis.Plugins.Games.Minecraft.DataModels;
 using System.Collections.Generic;
 
 namespace Artemis.Plugins.Modules.Minecraft.DataModels;

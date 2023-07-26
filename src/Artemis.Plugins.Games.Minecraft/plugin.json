@@ -7,7 +7,7 @@
   "Repository": "https://github.com/urfour/Artemis.Plugins.Minecraft",
   "Icon": "Resources/Minecraft_logo.png",
   "Version": "1.0.0.0",
-  "Main": "Artemis.Plugins.Minecraft.dll",
+  "Main": "Artemis.Plugins.Games.Minecraft.dll",
   "AutoEnableProperties": true,
   "RequiresAdmin": false,
   "Platforms": "Windows,Linux,OSX",

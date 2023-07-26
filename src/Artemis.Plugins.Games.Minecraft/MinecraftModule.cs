@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Artemis.Core;
 using Artemis.Core.Modules;
 using Artemis.Core.Services;
-using Artemis.Plugins.Minecraft.DataModels;
+using Artemis.Plugins.Games.Minecraft.DataModels;
 using Artemis.Plugins.Modules.Minecraft.DataModels;
-using Newtonsoft.Json;
-using Serilog;
 
-namespace Artemis.Plugins.Modules.Minecraft;
+namespace Artemis.Plugins.Games.Modules.Minecraft;
 
 [PluginFeature(AlwaysEnabled = true)]
 public class MinecraftModule : Module<MinecraftDataModel>

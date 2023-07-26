@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace Artemis.Plugins.Minecraft.DataModels
+namespace Artemis.Plugins.Games.Minecraft.DataModels
 {
     public class GameInfos
     {

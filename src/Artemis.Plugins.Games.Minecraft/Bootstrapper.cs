@@ -1,8 +1,6 @@
 using Artemis.Core;
-using Artemis.UI.Shared;
-using Serilog;
 
-namespace Artemis.Plugins.Minecraft;
+namespace Artemis.Plugins.Games.Minecraft;
 
 public class Bootstrapper : PluginBootstrapper
 {
