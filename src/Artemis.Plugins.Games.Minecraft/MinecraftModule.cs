@@ -7,7 +7,7 @@ using Artemis.Plugins.Modules.Minecraft.DataModels;
 
 namespace Artemis.Plugins.Games.Modules.Minecraft;
 
-[PluginFeature(AlwaysEnabled = true)]
+[PluginFeature(Name = "Minecraft")]
 public class MinecraftModule : Module<MinecraftDataModel>
 {
     private readonly IWebServerService _webServerService;
@@ -15,7 +15,8 @@ public class MinecraftModule : Module<MinecraftDataModel>
     {
         _webServerService = webServerService;
     }
-    public override List<IModuleActivationRequirement> ActivationRequirements { get; } = new();
+    public override List<IModuleActivationRequirement> ActivationRequirements { get; }
+        = new() { new ProcessActivationRequirement("javaw") };
 
     public override void ModuleActivated(bool isOverride)
     {
