@@ -1,15 +1,15 @@
 {
-    "Guid": "25DACD2D-9275-4D94-BC12-8761DEDF0F1D",
-    "Name": "Plugin Name",
-    "Description": "Plugin Description",
-    "Author": "",
-    "Website": "",
-    "Repository": "",
-    "Icon": "QuestionMark",
-    "Version": "1.0.0.0",
-    "Main": "Artemis.Plugins.Minecraft.dll",
-    "AutoEnableProperties": true,
-    "RequiresAdmin": false,
-    "Platforms": "Windows,Linux,OSX",
-    "Api": "1.0.0"
+  "Guid": "25DACD2D-9275-4D94-BC12-8761DEDF0F1D",
+  "Name": "Minecraft",
+  "Description": "Artemis Game State Integration for Minecraft",
+  "Author": "UrFour",
+  "Website": "",
+  "Repository": "https://github.com/urfour/Artemis.Plugins.Minecraft",
+  "Icon": "Resources/Minecraft_logo.png",
+  "Version": "1.0.0.0",
+  "Main": "Artemis.Plugins.Minecraft.dll",
+  "AutoEnableProperties": true,
+  "RequiresAdmin": false,
+  "Platforms": "Windows,Linux,OSX",
+  "Api": "1.0.0"
 }
