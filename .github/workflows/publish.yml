@@ -32,7 +32,7 @@ jobs:
           - name: Release with Notes
             uses: softprops/action-gh-release@v1
             with:
-              files: ArtemisMC-Plugin.zip
+              files: src/Artemis.Plugins.Games.Minecraft/bin/x64/Release/net7.0/publish/ArtemisMC-Plugin.zip
             env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
