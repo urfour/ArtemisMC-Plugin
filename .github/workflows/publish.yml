@@ -24,11 +24,9 @@ jobs:
             uses: actions/upload-artifact@v3
             with:
               path: src/Artemis.Plugins.Games.Minecraft/bin/x64/Release/net7.0/publish
-              
+
           - name: Download latest artifact
             uses: actions/download-artifact@v3
-            with:
-              name: ArtemisMC-Plugin
     
           - name: Release with Notes
             uses: softprops/action-gh-release@v1
