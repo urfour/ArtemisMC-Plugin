@@ -7,7 +7,7 @@ on:
 name: Upload Release Asset
   
 jobs:
-    build:
+    release:
         if: ${{ github.repository != 'diogotr7/Artemis.PluginTemplate' && github.repository != 'Artemis-RGB/Artemis.PluginTemplate' && '[ -f .template ]' }}
         runs-on: ubuntu-latest
     
@@ -28,11 +28,13 @@ jobs:
             with:
               name: ArtemisMC-Plugin
               path: src/Artemis.Plugins.Games.Minecraft/bin/x64/Release/net7.0/publish
+          - name: Create zipped file
+            run: zip -r ArtemisMC-Plugin.zip src/Artemis.Plugins.Games.Minecraft/bin/x64/Release/net7.0/publish
 
           - name: Release with Notes
             uses: softprops/action-gh-release@v1
             with:
-              files: src/Artemis.Plugins.Games.Minecraft/bin/x64/Release/net7.0/publish/ArtemisMC-Plugin.zip
+              files: ArtemisMC-Plugin.zip
             env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
