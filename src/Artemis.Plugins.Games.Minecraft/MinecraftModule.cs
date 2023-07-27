@@ -34,6 +34,7 @@ public class MinecraftModule : Module<MinecraftDataModel>
         {
             DataModel.Infos.Player = rep.Player;
             DataModel.Infos.World = rep.World;
+            DataModel.Infos.Gui = rep.Gui;
             return DataModel.Infos;
         });
     }

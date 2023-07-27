@@ -1,0 +1,38 @@
+on:
+    push:
+      # Sequence of patterns matched against refs/tags
+      tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+  
+name: Upload Release Asset
+  
+jobs:
+    build:
+        if: ${{ github.repository != 'diogotr7/Artemis.PluginTemplate' && github.repository != 'Artemis-RGB/Artemis.PluginTemplate' && '[ -f .template ]' }}
+        runs-on: ubuntu-latest
+    
+        steps:
+          - name: Setup .NET
+            uses: actions/setup-dotnet@v1
+            with:
+              dotnet-version: '7.0.x'
+    
+          - name: Clone
+            uses: actions/checkout@v2
+    
+          - name: Build
+            run: dotnet publish -c Release src
+    
+          - name: Upload
+            uses: actions/upload-artifact@v3
+            with:
+              name: ArtemisMC-Plugin
+              path: src/Artemis.Plugins.Games.Minecraft/bin/x64/Release/net7.0/publish
+
+          - name: Release with Notes
+            uses: softprops/action-gh-release@v1
+            with:
+              files: ArtemisMC-Plugin.zip
+            env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  

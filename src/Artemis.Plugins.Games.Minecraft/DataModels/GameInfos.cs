@@ -15,11 +15,14 @@ namespace Artemis.Plugins.Games.Minecraft.DataModels
         {
             Player = new PlayerInfos();
             World = new WorldInfos();
+            Gui = new GuiInfos();
         }
         [DataModelProperty(Name = "Player")]
         public PlayerInfos Player { get; set; }
         [DataModelProperty(Name = "World")]
         public WorldInfos World { get; set; }
+        [DataModelProperty(Name = "GUI")]
+        public GuiInfos Gui { get; set; }
         public class PlayerInfos
         {
             public class PotionEffects
@@ -58,16 +61,25 @@ namespace Artemis.Plugins.Games.Minecraft.DataModels
                 public bool Confusion { get; set; }
                 public bool Wither { get; set; }
             }
+            public class ArmorInfos
+            {
+                public ArmorInfos() {}
+                public string? Helmet { get; set; }
+                public string? Chestplate { get; set; }
+                public string? Leggings { get; set; }
+                public string? Boots { get; set; }
+            }
             public PlayerInfos()
             {
                 PlayerEffects = new PotionEffects();
+                Armor = new ArmorInfos();
             }
             public bool InGame { get; set; }
             public float Health { get; set; }
             public float MaxHealth { get; set; }
             public float Absorption { get; set; }
             public bool IsDead { get; set; }
-            public int Armor { get; set; }
+            public int ArmorPoints { get; set; }
             public int ExperienceLevel { get; set; }
             public float Experience { get; set; }
             public int FoodLevel { get; set; }
@@ -77,19 +89,27 @@ namespace Artemis.Plugins.Games.Minecraft.DataModels
             public bool IsBurning { get; set; }
             public bool IsInWater { get; set; }
             public PotionEffects PlayerEffects { get; set; }
+            public ArmorInfos Armor { get; set; }
+            public string? LeftHandItem { get; set; }
+            public string? RightHandItem { get; set; }
         }
 
         public class WorldInfos
         {
-            public WorldInfos() 
-            {
-                Dimension = "";
-            }
+            public WorldInfos() {}
             public int WorldTime { get; set; }
             public bool IsDayTime { get; set; }
             public bool IsRaining { get; set; }
             public float RainStrength { get; set; }
-            public string Dimension { get; set; }
+            public string? Dimension { get; set; }
+        }
+        public class GuiInfos
+        {
+            public GuiInfos() {}
+            public bool ChatGuiOpen { get; set; }
+            public bool OptionsGuiOpen { get; set; }
+            public bool ControlsGuiOpen { get; set; }
+            public bool KeybindsGuiOpen { get; set; }
         }
     }
 }
