@@ -1,4 +1,5 @@
 # Artemis Minecraft plugin
+[![GitHub release version](https://img.shields.io/github/v/release/urfour/ArtemisMC-Plugin.svg)](https://github.com/urfour/ArtemisMC/releases)
 
 Artemis plugin for Minecraft Game State Integration.
 
