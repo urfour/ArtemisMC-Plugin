@@ -26,13 +26,13 @@ jobs:
           - name: Upload
             uses: actions/upload-artifact@v3
             with:
-              name: ArtemisMC-Plugin.zip
+              name: ArtemisMC-Plugin
               path: src/Artemis.Plugins.Games.Minecraft/bin/x64/Release/net7.0/publish
 
           - name: Release with Notes
             uses: softprops/action-gh-release@v1
             with:
-              files: src/Artemis.Plugins.Games.Minecraft/bin/x64/Release/net7.0/publish/ArtemisMC-Plugin.zip
+              files: ArtemisMC-Plugin.zip
             env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
