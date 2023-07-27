@@ -24,6 +24,7 @@ jobs:
             uses: actions/upload-artifact@v3
             with:
               path: src/Artemis.Plugins.Games.Minecraft/bin/x64/Release/net7.0/publish
+              name: ArtemisMC-Plugin
               
           - name: Download latest artifact
             uses: actions/download-artifact@v3
@@ -33,7 +34,7 @@ jobs:
           - name: Release with Notes
             uses: softprops/action-gh-release@v1
             with:
-              files: ArtemisMC-Plugin.zip
+              files: ArtemisMC-Plugin
             env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
