@@ -58,16 +58,25 @@ namespace Artemis.Plugins.Games.Minecraft.DataModels
                 public bool Confusion { get; set; }
                 public bool Wither { get; set; }
             }
+            public class Armor
+            {
+                public Armor() { }
+                private string Helmet { get; set; }
+                private string Chestplate { get; set; }
+                private string Leggings { get; set; }
+                private string Boots { get; set; }
+            }
             public PlayerInfos()
             {
                 PlayerEffects = new PotionEffects();
+                Armor = new Armor();
             }
             public bool InGame { get; set; }
             public float Health { get; set; }
             public float MaxHealth { get; set; }
             public float Absorption { get; set; }
             public bool IsDead { get; set; }
-            public int Armor { get; set; }
+            public int ArmorPoints { get; set; }
             public int ExperienceLevel { get; set; }
             public float Experience { get; set; }
             public int FoodLevel { get; set; }
@@ -77,6 +86,9 @@ namespace Artemis.Plugins.Games.Minecraft.DataModels
             public bool IsBurning { get; set; }
             public bool IsInWater { get; set; }
             public PotionEffects PlayerEffects { get; set; }
+            public Armor Armor { get; set; }
+            public string LeftHandItem { get; set; }
+            public string RightHandItem { get; set; }
         }
 
         public class WorldInfos
