@@ -30,15 +30,18 @@ jobs:
             uses: actions/download-artifact@v3
             with:
               name: ArtemisMC-Plugin
+              path: plugin
 
           - name: Zip Artifact
             run: |
               ls -l
+              ls -l plugin
+              zip -r ArtemisMC-Plugin.zip plugin/*
     
           - name: Release with Notes
             uses: softprops/action-gh-release@v1
             with:
-              files: ArtemisMC-Plugin
+              files: ArtemisMC-Plugin.zip
             env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
