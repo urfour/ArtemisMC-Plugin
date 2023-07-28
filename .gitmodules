@@ -1,0 +1,3 @@
+[submodule "ArtemisMC"]
+	path = ArtemisMC
+	url = https://github.com/urfour/ArtemisMC

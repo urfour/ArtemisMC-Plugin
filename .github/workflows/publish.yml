@@ -1,9 +1,9 @@
 on:
     push:
-      tags:
-      - 'v*'
+      branch:
+        - workflows
   
-name: Upload Release Asset
+name: Upload Release
   
 jobs:
     release:
@@ -30,6 +30,10 @@ jobs:
             uses: actions/download-artifact@v3
             with:
               name: ArtemisMC-Plugin
+
+          - name: Zip Artifact
+            run: |
+              ls -l
     
           - name: Release with Notes
             uses: softprops/action-gh-release@v1
