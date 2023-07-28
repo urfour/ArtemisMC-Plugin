@@ -1,9 +1,9 @@
 on:
     push:
-      tags:
-      - 'v*'
+      branch:
+        - workflows
   
-name: Upload Release Asset
+name: Upload Release
   
 jobs:
     release:
@@ -25,16 +25,17 @@ jobs:
             with:
               path: src/Artemis.Plugins.Games.Minecraft/bin/x64/Release/net7.0/publish
               name: ArtemisMC-Plugin
-              
-          - name: Download latest artifact
-            uses: actions/download-artifact@v3
-            with:
-              name: ArtemisMC-Plugin
+
+          - name: Zip Artifact
+            run: |
+              cd src/Artemis.Plugins.Games.Minecraft/bin/x64/Release/net7.0/publish
+              ls -l .
+              zip -r ${{ github.workspace }}/ArtemisMC-Plugin.zip *
     
           - name: Release with Notes
             uses: softprops/action-gh-release@v1
             with:
-              files: ArtemisMC-Plugin
+              files: ArtemisMC-Plugin.zip
             env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
