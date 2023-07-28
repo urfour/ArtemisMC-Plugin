@@ -25,18 +25,12 @@ jobs:
             with:
               path: src/Artemis.Plugins.Games.Minecraft/bin/x64/Release/net7.0/publish
               name: ArtemisMC-Plugin
-              
-          - name: Download latest artifact
-            uses: actions/download-artifact@v3
-            with:
-              name: ArtemisMC-Plugin
-              path: plugin
 
           - name: Zip Artifact
             run: |
-              ls -l
-              ls -l plugin
-              zip -r ArtemisMC-Plugin.zip plugin/*
+              ls -l ${{ github.workspace }}
+              (cd src/Artemis.Plugins.Games.Minecraft/bin/x64/Release/net7.0/publish)
+              zip -r ${{ github.workspace }}/ArtemisMC-Plugin.zip *
     
           - name: Release with Notes
             uses: softprops/action-gh-release@v1
