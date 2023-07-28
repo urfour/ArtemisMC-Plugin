@@ -80,7 +80,7 @@ namespace Artemis.Plugins.Games.Minecraft.Prerequisites
 
             UninstallActions = new List<PluginPrerequisiteAction>()
             {
-
+                new DeleteFileAction("Delete mod", ModFilename)
             };
 
         }

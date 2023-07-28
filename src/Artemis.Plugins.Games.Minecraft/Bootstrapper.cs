@@ -10,14 +10,4 @@ public class Bootstrapper : PluginBootstrapper
         AddPluginPrerequisite(new FabricPrerequisite(plugin));
         AddPluginPrerequisite(new ModPrerequisite(plugin));
     }
-
-    public override void OnPluginEnabled(Plugin plugin)
-    {
-        
-    }
-    
-    public override void OnPluginDisabled(Plugin plugin)
-    {
-        
-    }
 }
