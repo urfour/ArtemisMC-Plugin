@@ -1,6 +1,7 @@
 name: Build Plugins
 
 on: 
+  pull_request:
   push:
     tags-ignore:
       - '*'
