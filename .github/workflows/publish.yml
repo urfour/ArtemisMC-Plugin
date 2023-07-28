@@ -28,8 +28,8 @@ jobs:
 
           - name: Zip Artifact
             run: |
-              ls -l ${{ github.workspace }}
-              (cd src/Artemis.Plugins.Games.Minecraft/bin/x64/Release/net7.0/publish)
+              cd src/Artemis.Plugins.Games.Minecraft/bin/x64/Release/net7.0/publish
+              ls -l .
               zip -r ${{ github.workspace }}/ArtemisMC-Plugin.zip *
     
           - name: Release with Notes
