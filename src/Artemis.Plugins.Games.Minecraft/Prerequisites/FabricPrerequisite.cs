@@ -38,7 +38,10 @@ namespace Artemis.Plugins.Games.Minecraft.Prerequisites
                    $"-jar {Path.Combine(plugin.Directory.FullName, "fabric-installer.jar")} client")
             };
 
-            UninstallActions = new List<PluginPrerequisiteAction>();
+            UninstallActions = new List<PluginPrerequisiteAction>()
+            {
+                new DeleteFolderAction("Delete Fabric profile", FabricPath)
+            };
         }
     }
 }

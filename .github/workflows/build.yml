@@ -1,6 +1,9 @@
 name: Build Plugins
 
-on: push
+on: 
+  push:
+    tags-ignore:
+      - '*'
 
 jobs:
   build:
