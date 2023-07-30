@@ -73,7 +73,7 @@ namespace Artemis.Plugins.Games.Minecraft.Prerequisites
                 ),
                 new DownloadFileAction(
                     "Download ArtemisMC mod",
-                    $"https://github.com/urfour/ArtemisMC/releases/latest/download/artemismc-{plugin.Info.Version}.jar",
+                    $"https://github.com/urfour/ArtemisMC-Fabric/releases/latest/download/artemismc-{plugin.Info.Version}.jar",
                     ModFilename
                )
             };

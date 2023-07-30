@@ -1,3 +1,6 @@
-[submodule "ArtemisMC"]
-	path = ArtemisMC
-	url = https://github.com/urfour/ArtemisMC
+[submodule "ArtemisMC-Fabric"]
+	path = ArtemisMC-Fabric
+	url = https://github.com/urfour/ArtemisMC-Fabric
+[submodule "ArtemisMC-Forge"]
+	path = ArtemisMC-Forge
+	url = https://github.com/urfour/ArtemisMC-Forge
