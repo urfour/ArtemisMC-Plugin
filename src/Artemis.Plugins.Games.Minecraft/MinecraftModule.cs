@@ -16,7 +16,7 @@ public class MinecraftModule : Module<MinecraftDataModel>
         _webServerService = webServerService;
     }
     public override List<IModuleActivationRequirement> ActivationRequirements { get; }
-        = new() { new ProcessActivationRequirement("javaw") };
+        = new() { new ProcessActivationRequirement("javaw"), new ProcessActivationRequirement("java") };
 
     public override void ModuleActivated(bool isOverride)
     {
