@@ -6,7 +6,7 @@
   "Website": "",
   "Repository": "https://github.com/urfour/Artemis.Plugins.Minecraft",
   "Icon": "Resources/Minecraft_logo.png",
-  "Version": "1.1.1",
+  "Version": "1.1.1.1",
   "Main": "Artemis.Plugins.Games.Minecraft.dll",
   "AutoEnableProperties": true,
   "RequiresAdmin": false,
