@@ -1,5 +1,7 @@
 ﻿using Artemis.Core;
 using Artemis.Plugins.Games.Minecraft.Actions;
+using Avalonia.Logging;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,12 +21,21 @@ namespace Artemis.Plugins.Games.Minecraft.Prerequisites
         }
         public FabricPrerequisite(Plugin plugin)
         {
+            string specialFolder;
+            if (Environment.OSVersion.Platform == PlatformID.Win32NT) {
+                specialFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            }
+            else
+            {
+                specialFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            }
             FabricPath = Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                specialFolder,
                 ".minecraft",
                 "versions",
-                "fabric-loader-0.14.21-1.20.1"
-            );
+                "fabric-loader-0.14.22-1.20.1"
+           );
+
             InstallActions = new List<PluginPrerequisiteAction>()
             {
                 new DownloadFileAction(

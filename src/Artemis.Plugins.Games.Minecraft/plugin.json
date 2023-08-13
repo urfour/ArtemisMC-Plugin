@@ -4,7 +4,7 @@
   "Description": "Artemis Game State Integration for Minecraft",
   "Author": "UrFour",
   "Website": "",
-  "Repository": "https://github.com/urfour/Artemis.Plugins.Minecraft",
+  "Repository": "https://github.com/urfour/ArtemisMC-Plugin",
   "Icon": "Resources/Minecraft_logo.png",
   "Version": "1.1.1.1",
   "Main": "Artemis.Plugins.Games.Minecraft.dll",
