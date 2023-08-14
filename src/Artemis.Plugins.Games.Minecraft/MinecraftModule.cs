@@ -18,16 +18,6 @@ public class MinecraftModule : Module<MinecraftDataModel>
     public override List<IModuleActivationRequirement> ActivationRequirements { get; }
         = new() { new ProcessActivationRequirement("javaw"), new ProcessActivationRequirement("java") };
 
-    public override void ModuleActivated(bool isOverride)
-    {
-
-    }
-
-    public override void ModuleDeactivated(bool isOverride)
-    {
-
-    }
-
     public override void Enable()
     {
         _webServerService.AddResponsiveJsonEndPoint<GameInfos>(this, "Minecraft", rep =>
@@ -41,7 +31,7 @@ public class MinecraftModule : Module<MinecraftDataModel>
 
     public override void Disable()
     {
-
+        
     }
 
     public override void Update(double deltaTime)

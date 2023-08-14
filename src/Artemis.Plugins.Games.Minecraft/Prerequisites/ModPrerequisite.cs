@@ -57,16 +57,9 @@ namespace Artemis.Plugins.Games.Minecraft.Prerequisites
         public override bool IsMet() {
             return Path.Exists(ModFilename);
         }
-        public ModPrerequisite(Plugin plugin)
+        public ModPrerequisite(Plugin plugin, string specialFolder)
         {
-            if (Environment.OSVersion.Platform == PlatformID.Win32NT)
-            {
-                SpecialFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            }
-            else
-            {
-                SpecialFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            }
+            SpecialFolder = specialFolder;
             ModFilename = Path.Combine(
                 SpecialFolder,
                 ".minecraft",

@@ -19,16 +19,8 @@ namespace Artemis.Plugins.Games.Minecraft.Prerequisites
         {
             return Path.Exists(FabricPath);
         }
-        public FabricPrerequisite(Plugin plugin)
+        public FabricPrerequisite(Plugin plugin, string specialFolder)
         {
-            string specialFolder;
-            if (Environment.OSVersion.Platform == PlatformID.Win32NT) {
-                specialFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            }
-            else
-            {
-                specialFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            }
             FabricPath = Path.Combine(
                 specialFolder,
                 ".minecraft",
@@ -46,7 +38,7 @@ namespace Artemis.Plugins.Games.Minecraft.Prerequisites
                new ExecuteFileAction(
                    "Install Fabric Loader",
                    "java",
-                   $"-jar {Path.Combine(plugin.Directory.FullName, "fabric-installer.jar")} client")
+                   $"-jar {Path.Combine(plugin.Directory.FullName, "fabric-installer.jar")} client -loader 0.14.22")
             };
 
             UninstallActions = new List<PluginPrerequisiteAction>()
