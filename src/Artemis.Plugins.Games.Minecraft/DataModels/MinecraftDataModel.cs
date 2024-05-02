@@ -8,9 +8,7 @@ public class MinecraftDataModel : DataModel
 {
     public MinecraftDataModel()
     {
-        LastUpdate = "";
         Infos = new GameInfos();
     }
     public GameInfos Infos { get; set; }
-    public string LastUpdate { get; set; }
 }
