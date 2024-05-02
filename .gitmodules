@@ -4,6 +4,3 @@
 [submodule "Artemis-Forge"]
 	path = Artemis-Forge
 	url = https://github.com/urfour/ArtemisMC-Forge
-[submodule "ArtemisMC-Forge"]
-	path = ArtemisMC-Forge
-	url = https://github.com/urfour/ArtemisMC-Forge
