@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
@@ -102,6 +103,7 @@ namespace Artemis.Plugins.Games.Minecraft.DataModels
             public bool IsRaining { get; set; }
             public float RainStrength { get; set; }
             public string? Dimension { get; set; }
+            public string? Biome { get; set; }
         }
         public class GuiInfos
         {

@@ -1,9 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Artemis.Core;
 using Artemis.Core.Modules;
 using Artemis.Core.Services;
 using Artemis.Plugins.Games.Minecraft.DataModels;
 using Artemis.Plugins.Modules.Minecraft.DataModels;
+using Serilog;
 
 namespace Artemis.Plugins.Games.Modules.Minecraft;
 
@@ -11,9 +15,11 @@ namespace Artemis.Plugins.Games.Modules.Minecraft;
 public class MinecraftModule : Module<MinecraftDataModel>
 {
     private readonly IWebServerService _webServerService;
-    public MinecraftModule(IWebServerService webServerService)
+    private readonly ILogger _logger;
+    public MinecraftModule(IWebServerService webServerService, ILogger logger)
     {
         _webServerService = webServerService;
+        _logger = logger;
     }
     public override List<IModuleActivationRequirement> ActivationRequirements { get; }
         = new() { new ProcessActivationRequirement("javaw") };
@@ -46,7 +52,7 @@ public class MinecraftModule : Module<MinecraftDataModel>
 
     public override void Update(double deltaTime)
     {
-        DataModel.LastUpdate = $"{deltaTime} seconds";
+
     }
 
 }
