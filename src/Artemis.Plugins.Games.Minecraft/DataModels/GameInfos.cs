@@ -93,6 +93,7 @@ namespace Artemis.Plugins.Games.Minecraft.DataModels
             public ArmorInfos Armor { get; set; }
             public string? LeftHandItem { get; set; }
             public string? RightHandItem { get; set; }
+            public int CurrentHotbarSlot { get; set; } = -1;
         }
 
         public class WorldInfos

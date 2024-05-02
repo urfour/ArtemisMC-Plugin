@@ -4,13 +4,9 @@
   "Description": "Artemis Game State Integration for Minecraft",
   "Author": "UrFour",
   "Website": "",
-  "Repository": "https://github.com/urfour/Artemis.Plugins.Minecraft",
+  "Repository": "https://github.com/urfour/ArtemisMC-Plugin",
   "Icon": "Resources/Minecraft_logo.png",
-<<<<<<< Updated upstream
-  "Version": "1.1.1",
-=======
   "Version": "1.1.1.2",
->>>>>>> Stashed changes
   "Main": "Artemis.Plugins.Games.Minecraft.dll",
   "AutoEnableProperties": true,
   "RequiresAdmin": false,

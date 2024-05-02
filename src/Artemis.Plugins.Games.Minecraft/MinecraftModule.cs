@@ -22,17 +22,7 @@ public class MinecraftModule : Module<MinecraftDataModel>
         _logger = logger;
     }
     public override List<IModuleActivationRequirement> ActivationRequirements { get; }
-        = new() { new ProcessActivationRequirement("javaw") };
-
-    public override void ModuleActivated(bool isOverride)
-    {
-
-    }
-
-    public override void ModuleDeactivated(bool isOverride)
-    {
-
-    }
+        = new() { new ProcessActivationRequirement("javaw"), new ProcessActivationRequirement("java") };
 
     public override void Enable()
     {
@@ -47,7 +37,7 @@ public class MinecraftModule : Module<MinecraftDataModel>
 
     public override void Disable()
     {
-
+        
     }
 
     public override void Update(double deltaTime)

@@ -1,5 +1,7 @@
-﻿using Artemis.Core;
+using Artemis.Core;
 using Artemis.Plugins.Games.Minecraft.Actions;
+using Avalonia.Logging;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,20 +19,15 @@ namespace Artemis.Plugins.Games.Minecraft.Prerequisites
         {
             return Path.Exists(FabricPath);
         }
-        public FabricPrerequisite(Plugin plugin)
+        public FabricPrerequisite(Plugin plugin, string specialFolder)
         {
             FabricPath = Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                specialFolder,
                 ".minecraft",
                 "versions",
-<<<<<<< Updated upstream
-                "fabric-loader-0.14.21-1.20.1"
-            );
-=======
                 "fabric-loader-0.14.25-1.20.1"
            );
 
->>>>>>> Stashed changes
             InstallActions = new List<PluginPrerequisiteAction>()
             {
                 new DownloadFileAction(
@@ -41,11 +38,7 @@ namespace Artemis.Plugins.Games.Minecraft.Prerequisites
                new ExecuteFileAction(
                    "Install Fabric Loader",
                    "java",
-<<<<<<< Updated upstream
-                   $"-jar {Path.Combine(plugin.Directory.FullName, "fabric-installer.jar")} client")
-=======
-                   $"-jar {Path.Combine(plugin.Directory.FullName, "fabric-installer.jar")} client -loader 0.14.25 -mcversion 1.20.1")
->>>>>>> Stashed changes
+                   $"-jar {Path.Combine(plugin.Directory.FullName, "fabric-installer.jar")} client -loader 0.14.25 -mcversion 1.20.1")  
             };
 
             UninstallActions = new List<PluginPrerequisiteAction>()

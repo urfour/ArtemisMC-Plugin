@@ -5,7 +5,6 @@ Artemis plugin for Minecraft Game State Integration.
 
 ## Installation
 
-<<<<<<< Updated upstream
 - Download the [latest release](https://github.com/urfour/ArtemisMC/releases/latest) of the mod as a .zip file
 - In Artemis, go to Settings -> Plugins, click "Import plugin", and select the downloaded archive
 - The plugin will automatically install Fabric and the [ArtemisMC mod](https://github.com/urfour/ArtemisMC/releases) on Minecraft
@@ -27,4 +26,3 @@ There is also a [Forge version](https://github.com/urfour/ArtemisMC-Forge) if ne
 - Download and install [Fabric](https://fabricmc.net/use/installer/)
 - Download the [latest release](https://github.com/urfour/ArtemisMC-Fabric/releases/latest) the mod, and move it to your mods folder
 - Done!
->>>>>>> Stashed changes

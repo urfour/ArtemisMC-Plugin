@@ -40,13 +40,15 @@ namespace Artemis.Plugins.Games.Minecraft.Prerequisites
         public override List<PluginPrerequisiteAction> InstallActions { get; }
         public override List<PluginPrerequisiteAction> UninstallActions { get; }
         private string ModFilename { get; set; }
+        private string SpecialFolder { get; set; }
         public override bool IsMet() {
             return Path.Exists(ModFilename);
         }
-        public ModPrerequisite(Plugin plugin)
+        public ModPrerequisite(Plugin plugin, string specialFolder)
         {
+            SpecialFolder = specialFolder;
             ModFilename = Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                SpecialFolder,
                 ".minecraft",
                 "mods",
                 $"artemismc-{plugin.Info.Version}.jar"
@@ -56,7 +58,7 @@ namespace Artemis.Plugins.Games.Minecraft.Prerequisites
                 new CreateFolderAction(
                     "Create mods folder",
                     Path.Combine(
-                        Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ".minecraft", "mods")
+                        SpecialFolder, ".minecraft", "mods")
                 ),
                 new DownloadFileAction(
                     "Download ArtemisMC mod",
