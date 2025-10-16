@@ -25,20 +25,20 @@ namespace Artemis.Plugins.Games.Minecraft.Prerequisites
                 specialFolder,
                 ".minecraft",
                 "versions",
-                "fabric-loader-0.14.25-1.20.1"
+                "fabric-loader-0.17.3-1.21.10"
            );
 
             InstallActions = new List<PluginPrerequisiteAction>()
             {
                 new DownloadFileAction(
                     "Download Fabric Loader",
-                    $"https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.0.1/fabric-installer-1.0.1.jar",
+                    $"https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
                     Path.Combine(plugin.Directory.FullName, "fabric-installer.jar")
                ),
                new ExecuteFileAction(
                    "Install Fabric Loader",
                    "java",
-                   $"-jar {Path.Combine(plugin.Directory.FullName, "fabric-installer.jar")} client -loader 0.14.25 -mcversion 1.20.1")  
+                   $"-jar {Path.Combine(plugin.Directory.FullName, "fabric-installer.jar")} client -loader 0.17.3 -mcversion 1.21.10"),
             };
 
             UninstallActions = new List<PluginPrerequisiteAction>()

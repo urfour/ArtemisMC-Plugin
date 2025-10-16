@@ -21,8 +21,8 @@ public class MinecraftModule : Module<MinecraftDataModel>
         _webServerService = webServerService;
         _logger = logger;
     }
-    public override List<IModuleActivationRequirement> ActivationRequirements { get; }
-        = new() { new ProcessActivationRequirement("javaw"), new ProcessActivationRequirement("java") };
+public override List<IModuleActivationRequirement> ActivationRequirements { get; }
+    = new() { new MinecraftProcessActivationRequirement() };
 
     public override void Enable()
     {
