@@ -1,0 +1,16 @@
+[
+{
+  "modid": "artemismc",
+  "name": "ArtemisMC",
+  "description": "Minecraft Game State Integration mod for Artemis",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "\"https://github.com/urfour/ArtemisMC-Forge\"",
+  "updateUrl": "",
+  "authorList": ["UrFour"],
+  "credits": "",
+  "logoFile": "artemis_logo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]
