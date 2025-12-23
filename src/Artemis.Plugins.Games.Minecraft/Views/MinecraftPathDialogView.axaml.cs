@@ -1,6 +1,6 @@
 ﻿using Artemis.Plugins.Games.Minecraft.ViewModels;
 using Avalonia.Markup.Xaml;
-using Avalonia.ReactiveUI;
+using ReactiveUI.Avalonia;
 using System;
 using System.Collections.Generic;
 using System.Linq;
