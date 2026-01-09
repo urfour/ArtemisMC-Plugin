@@ -6,19 +6,28 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Artemis.Plugins.Games.Minecraft.Views.MinecraftPathDialogView"
              x:DataType="viewModels:MinecraftPathDialogViewModel">
-    <StackPanel>
+    <StackPanel Spacing="10">
         <TextBlock Classes="card-title">
             Settings
         </TextBlock>
         <Border Classes="card" VerticalAlignment="Stretch" Margin="0,0,5,0">
-            <StackPanel>
+            <StackPanel Spacing="10">
                 <Grid RowDefinitions="*,*" ColumnDefinitions="*,Auto">
                     <StackPanel Grid.Column="0">
                         <TextBlock>
                             Minecraft Path for the automatic download of Fabric and the mod
                         </TextBlock>
+                        <TextBox Text="{Binding MinecraftPath}" Margin="0 5 0 0" IsReadOnly="True"/>
                     </StackPanel>
+                    <Button Grid.Column="1" Grid.Row="0" Margin="10 0 0 0" VerticalAlignment="Bottom" Command="{Binding SelectPath}">Browse</Button>
                 </Grid>
+                
+                <StackPanel>
+                    <TextBlock>Target Minecraft Version</TextBlock>
+                     <ComboBox ItemsSource="{Binding AvailableVersions}" SelectedItem="{Binding SelectedVersion}" HorizontalAlignment="Stretch" Margin="0 5 0 0"/>
+                </StackPanel>
+                
+                <Button Command="{Binding Save}" HorizontalAlignment="Right" Classes="accent">Save Settings</Button>
             </StackPanel>
         </Border>
     </StackPanel>

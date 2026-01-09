@@ -1,6 +1,8 @@
 ﻿using Artemis.Plugins.Games.Minecraft.ViewModels;
+using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
-using Avalonia.ReactiveUI;
+using ReactiveUI;
+using ReactiveUI.Avalonia;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,17 @@ namespace Artemis.Plugins.Games.Minecraft.Views
         public MinecraftPathDialogView()
         {
             InitializeComponent();
+            this.WhenActivated(disposables =>
+            {
+                if (ViewModel != null)
+                {
+                    ViewModel.RequestClose += (_, _) =>
+                    {
+                         var window = this.VisualRoot as Avalonia.Controls.Window;
+                         window?.Close();
+                    };
+                }
+            });
         }
 
         private void InitializeComponent()
