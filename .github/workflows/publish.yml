@@ -24,12 +24,12 @@ jobs:
           - name: Upload
             uses: actions/upload-artifact@v4
             with:
-              path: src/Artemis.Plugins.Games.Minecraft/bin/x64/Release/net8.0/publish
+              path: src/Artemis.Plugins.Games.Minecraft/bin/x64/Release/net10.0/publish
               name: ArtemisMC-Plugin
 
           - name: Zip Artifact
             run: |
-              cd src/Artemis.Plugins.Games.Minecraft/bin/x64/Release/net8.0/publish
+              cd src/Artemis.Plugins.Games.Minecraft/bin/x64/Release/net10.0/publish
               ls -l .
               zip -r ${{ github.workspace }}/ArtemisMC-Plugin.zip *
     

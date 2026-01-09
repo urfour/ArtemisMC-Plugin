@@ -39,10 +39,10 @@ namespace Artemis.Plugins.Games.Minecraft.Prerequisites
         public override string Name => "ArtemisMC Mod";
         public override string Description => "ArtemisMC needs to be installed";
         
-        private List<PluginPrerequisiteAction> _installActions;
+        private List<PluginPrerequisiteAction> _installActions = new();
         public override List<PluginPrerequisiteAction> InstallActions => _installActions;
         
-        private List<PluginPrerequisiteAction> _uninstallActions;
+        private List<PluginPrerequisiteAction> _uninstallActions = new();
         public override List<PluginPrerequisiteAction> UninstallActions => _uninstallActions;
         public ModPrerequisite(Plugin plugin, MinecraftPluginConfiguration configuration)
         {
@@ -53,7 +53,7 @@ namespace Artemis.Plugins.Games.Minecraft.Prerequisites
 
         private readonly MinecraftPluginConfiguration _configuration;
         private readonly Plugin _plugin;
-        private string ModFilename;
+        private string ModFilename = string.Empty;
 
         public override bool IsMet() {
              if (string.IsNullOrEmpty(_configuration.MinecraftPath.Value)) return false;
@@ -79,7 +79,7 @@ namespace Artemis.Plugins.Games.Minecraft.Prerequisites
             {
                 new CreateFolderAction(
                     "Create mods folder",
-                    Path.Combine(baseFolder, ".minecraft", "mods")
+                    Path.Combine(baseFolder ?? string.Empty, ".minecraft", "mods")
                 ),
                 new DownloadFileAction(
                     "Download ArtemisMC mod",

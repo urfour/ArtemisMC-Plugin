@@ -68,7 +68,7 @@ namespace Artemis.Plugins.Games.Minecraft.Prerequisites
                  vm.RequestClose += (_, _) => window.Close();
 
                  // Get Main Window
-                 if (Avalonia.Application.Current?.ApplicationLifetime is Avalonia.Controls.ApplicationLifetimes.IClassicDesktopStyleApplicationLifetime desktop)
+                 if (Avalonia.Application.Current?.ApplicationLifetime is Avalonia.Controls.ApplicationLifetimes.IClassicDesktopStyleApplicationLifetime desktop && desktop.MainWindow != null)
                  {
                      await window.ShowDialog(desktop.MainWindow);
                  }

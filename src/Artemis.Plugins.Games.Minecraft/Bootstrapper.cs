@@ -10,7 +10,7 @@ using Artemis.UI.Shared;
 namespace Artemis.Plugins.Games.Minecraft;
 
 public class Bootstrapper : PluginBootstrapper {
-    public static MinecraftPluginConfiguration Configuration { get; private set; }
+    public static MinecraftPluginConfiguration Configuration { get; private set; } = null!;
 
     public override void OnPluginEnabled(Plugin plugin)
     {

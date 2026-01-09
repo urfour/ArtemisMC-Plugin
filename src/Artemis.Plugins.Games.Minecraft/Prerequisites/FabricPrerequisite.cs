@@ -14,15 +14,15 @@ namespace Artemis.Plugins.Games.Minecraft.Prerequisites
         public override string Name => "Fabric";
         public override string Description => "Fabric needs to be installed";
         
-        private List<PluginPrerequisiteAction> _installActions;
+        private List<PluginPrerequisiteAction> _installActions = new();
         public override List<PluginPrerequisiteAction> InstallActions => _installActions;
         
-        private List<PluginPrerequisiteAction> _uninstallActions;
+        private List<PluginPrerequisiteAction> _uninstallActions = new();
         public override List<PluginPrerequisiteAction> UninstallActions => _uninstallActions;
 
         private readonly MinecraftPluginConfiguration _configuration;
         private readonly Plugin _plugin;
-        private string FabricPath;
+        private string FabricPath = string.Empty;
 
         public FabricPrerequisite(Plugin plugin, MinecraftPluginConfiguration configuration)
         {
