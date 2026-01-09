@@ -44,24 +44,16 @@ namespace Artemis.Plugins.Games.Minecraft.Prerequisites
             var baseFolder = _configuration.MinecraftPath.Value;
             var version = _configuration.TargetVersion.Value;
             
-             // Logic mapping version to Fabric loader version
-             // Simplification: assuming specific loader versions for demo, or using a map
-            string loaderVersion = "0.18.4"; // Default fallback
+            string loaderVersion = "0.18.4";
             if (version == "1.21.11") loaderVersion = "0.18.4";
             else if (version == "1.21.10") loaderVersion = "0.18.4";
             else if (version == "1.20.1") loaderVersion = "0.14.25";
              
             FabricPath = Path.Combine(new string[] {
                 baseFolder ?? string.Empty,
-                ".minecraft",
                 "versions",
                 $"fabric-loader-{loaderVersion}-{version}"
             });
-           
-           // TODO: Update InstallActions dynamically? 
-           // Prerequisite actions are usually static. If they need to be dynamic, we might need to recreate them or use a dynamic action.
-           // For now, let's hardcode the actions based on the CURRENT config at construction?
-           // Limitation: If user changes config at runtime, InstallActions here won't update unless we recreate the Prerequisite.
            
             _installActions = new List<PluginPrerequisiteAction>()
             {

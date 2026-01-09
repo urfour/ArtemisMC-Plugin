@@ -25,7 +25,7 @@ namespace Artemis.Plugins.Games.Minecraft.Prerequisites
             {
                  new ConfigurePrerequisiteAction("Open Settings", plugin)
             };
-            UninstallActions = new List<PluginPrerequisiteAction>(){ };
+            UninstallActions = new List<PluginPrerequisiteAction>(); 
         }
 
         public override bool IsMet()
