@@ -1,4 +1,5 @@
 ﻿using Artemis.Core;
+using Artemis.Plugins.Games.Minecraft.DataModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -37,37 +38,57 @@ namespace Artemis.Plugins.Games.Minecraft.Prerequisites
 
         public override string Name => "ArtemisMC Mod";
         public override string Description => "ArtemisMC needs to be installed";
-        public override List<PluginPrerequisiteAction> InstallActions { get; }
-        public override List<PluginPrerequisiteAction> UninstallActions { get; }
-        private string ModFilename { get; set; }
-        private string SpecialFolder { get; set; }
-        public override bool IsMet() {
-            return Path.Exists(ModFilename);
-        }
-        public ModPrerequisite(Plugin plugin, string specialFolder)
+        
+        private List<PluginPrerequisiteAction> _installActions;
+        public override List<PluginPrerequisiteAction> InstallActions => _installActions;
+        
+        private List<PluginPrerequisiteAction> _uninstallActions;
+        public override List<PluginPrerequisiteAction> UninstallActions => _uninstallActions;
+        public ModPrerequisite(Plugin plugin, MinecraftPluginConfiguration configuration)
         {
-            SpecialFolder = specialFolder;
-            ModFilename = Path.Combine(
-                SpecialFolder,
+            _plugin = plugin;
+            _configuration = configuration;
+            Reevaluate();
+        }
+
+        private readonly MinecraftPluginConfiguration _configuration;
+        private readonly Plugin _plugin;
+        private string ModFilename;
+
+        public override bool IsMet() {
+             if (string.IsNullOrEmpty(_configuration.MinecraftPath.Value)) return false;
+             Reevaluate();
+             return Path.Exists(ModFilename);
+        }
+
+        private void Reevaluate()
+        {
+            var baseFolder = _configuration.MinecraftPath.Value;
+            var version = _configuration.TargetVersion.Value;
+            
+            string modVersion = _plugin.Info.Version; 
+
+            ModFilename = Path.Combine(new string[] {
+                baseFolder ?? string.Empty,
                 ".minecraft",
                 "mods",
-                $"artemismc-{plugin.Info.Version}.jar"
-            );
-            InstallActions = new List<PluginPrerequisiteAction>()
+                $"artemismc-{modVersion}-{version}.jar"
+            }); 
+            
+            _installActions = new List<PluginPrerequisiteAction>()
             {
                 new CreateFolderAction(
                     "Create mods folder",
-                    Path.Combine(
-                        SpecialFolder, ".minecraft", "mods")
+                    Path.Combine(baseFolder, ".minecraft", "mods")
                 ),
                 new DownloadFileAction(
                     "Download ArtemisMC mod",
-                    $"https://github.com/urfour/ArtemisMC/releases/latest/download/artemismc-{plugin.Info.Version}.jar",
+                    $"https://github.com/urfour/ArtemisMC-Fabric/releases/latest/download/artemismc-{modVersion}-{version}.jar",
                     ModFilename
                )
             };
 
-            UninstallActions = new List<PluginPrerequisiteAction>()
+            _uninstallActions = new List<PluginPrerequisiteAction>()
             {
                 new DeleteFileAction("Delete mod", ModFilename)
             };
