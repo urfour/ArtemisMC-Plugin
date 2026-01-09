@@ -70,7 +70,6 @@ namespace Artemis.Plugins.Games.Minecraft.Prerequisites
 
             ModFilename = Path.Combine(new string[] {
                 baseFolder ?? string.Empty,
-                ".minecraft",
                 "mods",
                 $"artemismc-{modVersion}-{version}.jar"
             }); 
@@ -79,7 +78,7 @@ namespace Artemis.Plugins.Games.Minecraft.Prerequisites
             {
                 new CreateFolderAction(
                     "Create mods folder",
-                    Path.Combine(baseFolder ?? string.Empty, ".minecraft", "mods")
+                    Path.Combine(baseFolder ?? string.Empty, "mods")
                 ),
                 new DownloadFileAction(
                     "Download ArtemisMC mod",
