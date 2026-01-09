@@ -60,7 +60,7 @@ namespace Artemis.Plugins.Games.Minecraft.ViewModels
 
         public ReactiveCommand<Unit, Unit> SelectPath { get; }
         public ReactiveCommand<Unit, Unit> Save { get; }
-        public event EventHandler RequestClose;
+        public event EventHandler? RequestClose;
 
         private async Task ExecuteSelectPath()
         {
